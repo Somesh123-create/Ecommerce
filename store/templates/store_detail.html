@@ -1,10 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block content %}
+
+<div class="container mt-5 mb-4">
+    <div class="row">
+       <div class="col-6 shadow-lg p-3 mb-5 bg-body rounded">
+            <img src="{{ product.image.url }}" alt="..." style="max-width: 340px;">
+       </div>
+        <div class="col-6 shadow-lg p-3 mb-5 bg-body rounded">
+            <div class="card-body">
+                <h5 class="card-title">{{ product.product_name }}</h5>
+                <p class="card-text">{{ product.description }}</p>
+                <h5 class="card-title">₹ {{ product.price }}</h5>
+            <hr>
+                <a class="btn btn-primary" type="button">Add cart</a>
+                <a href="{% url 'product_list' %}" class="btn btn-secondary" type="button">Back</a>
+            </div>
+       </div>
+    </div>
+</div>
+
+{% endblock %}

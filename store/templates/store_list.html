@@ -2,17 +2,23 @@
 
 {% block content %}
 
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-lg-4 col-sm-12 col-md-6">
-            <div class="card" style="width: 18rem;">
-              <img src="https://images.lululemon.com/is/image/lululemon/LM9AABS_0001_1?size=1600,1600" class="img-thumbnail" alt="...">
-              <div class="card-body">
-                <p class="card-text">Some quick example text to </p>
-              </div>
-            </div>
+    <div class="container mt-5 mb-4">
+        <div class="row no-gutters">
+            {% for list in product %}
+                <div class="col-lg-3 col-sm-12 col-md-6">
+                    <div class="card text-center shadow-lg p-3 mb-5 bg-body rounded" style="width: 18rem;">
+                        <a href="{% url 'product_detail' list.pk %}">
+                            <img src="{{ list.image.url }}" class="card-img-top" alt="..." width="250" height="250">
+                        </a>
+                          <div class="card-body">
+                            <p class="card-text">{{ list.product_name }} </p>
+                              <hr>
+                            <p class="card-text">₹ {{ list.price }} </p>
+                          </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
-</div>
 
 {% endblock %}
