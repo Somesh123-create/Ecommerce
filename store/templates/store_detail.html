@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
 
 <div class="container mt-5 mb-4">
@@ -13,8 +14,11 @@
                 <p class="card-text">{{ product.description }}</p>
                 <h5 class="card-title">₹ {{ product.price }}</h5>
             <hr>
-                <a class="btn btn-primary" type="button">Add cart</a>
-                <a href="{% url 'product_list' %}" class="btn btn-secondary" type="button">Back</a>
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="text" value="{{ product.id }}">
+                    <input class="btn btn-primary" type="submit" value="Add cart">
+                </form>
             </div>
        </div>
     </div>
