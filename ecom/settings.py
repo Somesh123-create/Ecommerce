@@ -139,3 +139,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'product_list'
 LOGOUT_REDIRECT_URL = 'product_list'
 
+
+CART_SESSION_ID = 'cart'
