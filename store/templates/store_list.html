@@ -4,11 +4,12 @@
 {% block content %}
 
     <div class="container mt-5 mb-4">
+      <h5 class='mb-3'>Item Found: <span class="badge bg-secondary">{{ counts }}</span></h5>
         <div class="row no-gutters">
             {% for list in product %}
                 <div class="col-lg-3 col-sm-12 col-md-6">
                     <div class="card text-center shadow-lg p-3 mb-5 bg-body rounded" style="width: 18rem;">
-                        <a href="{% url 'product_detail' list.pk %}">
+                        <a href="{% url 'product_detail' list.slug %}">
                             <img src="{{ list.image.url }}" class="card-img-top" alt="..." width="250" height="250">
                         </a>
                           <div class="card-body">

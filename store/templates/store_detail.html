@@ -17,7 +17,11 @@
                 <form method="post">
                     {% csrf_token %}
                     <input type="hidden" name="amount" value="{{ product.price }}">
-                    <button class="btn btn-primary" type="submit">Add cart</button>
+                    {% if product.stock <= 0 %}
+                      <h5 class='alert alert-danger'>Out Of Stock</h5>
+                    {% else %}
+                      <button class="btn btn-primary" type="submit">Add cart</button>
+                    {% endif %}
                 </form>
             </div>
        </div>
